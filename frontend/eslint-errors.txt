@@ -1,0 +1,68 @@
+﻿
+D:\Projects\Consultency\Consultancy\frontend\src\components\CartDrawer.jsx
+  4:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientDashboard.jsx
+  6:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientLogin.jsx
+  7:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientNavbar.jsx
+  15:9  error  'user' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientOrders.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientOverview.jsx
+  2:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientProducts.jsx
+  6:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ClientProfile.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\Clients.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\CreateInvoice.jsx
+   10:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                          no-unused-vars
+  105:9   error  'invoiceDataWithNumber' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\Dashboard.jsx
+   11:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  208:34  error  'sub' is defined but never used                                                no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\InvoiceById.jsx
+  11:9  error  'navigate' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\InvoiceDetailsForm.jsx
+  1:17  error  'useState' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+  9:3   error  'onProductSelect' is defined but never used                                      no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\LoginPage.jsx
+   7:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u          no-unused-vars
+  14:5   error  'reset' is assigned a value but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\MainLayout.jsx
+  3:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\Navbar.jsx
+  17:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ProductCard.jsx
+  72:15  error  Parsing error: Adjacent JSX elements must be wrapped in an enclosing tag
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\ProtectedRoute.jsx
+  25:16  error    'e' is defined but never used                                                                                    no-unused-vars
+  58:6   warning  React Hook useEffect has a missing dependency: 'allowedRoles'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\Projects\Consultency\Consultancy\frontend\src\components\SignUpPage.jsx
+  6:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+D:\Projects\Consultency\Consultancy\frontend\src\context\CartContext.jsx
+  5:14  warning  Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components  react-refresh/only-export-components
+
+Γ£û 25 problems (23 errors, 2 warnings)
+
