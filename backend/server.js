@@ -31,6 +31,7 @@ app.use("/api/client", require("./routes/clientPortalRoutes"));
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/support", require("./routes/supportRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
+app.use("/api/ai", require("./routes/aiRoutes"));
 
 // Test route
 app.get("/", (req, res) => {

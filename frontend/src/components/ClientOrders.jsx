@@ -133,7 +133,12 @@ export default function ClientOrders() {
                   </td>
                   <td className="px-6 py-5 text-right">
                     <div className="flex items-center justify-end gap-2">
-                       <button onClick={() => navigate(`/client/orders/${order._id}`)} title="View Order" className="p-2 text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 bg-gray-50 hover:bg-primary-50 dark:bg-gray-900 dark:hover:bg-primary-900/20 rounded-lg transition-colors border border-gray-200 dark:border-gray-700 hover:border-primary-200 dark:hover:border-primary-800">
+                       <button
+                         onClick={() => order._id && navigate(`/client/orders/${order._id}`)}
+                         disabled={!order._id}
+                         title="View Order"
+                         className="p-2 text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 bg-gray-50 hover:bg-primary-50 dark:bg-gray-900 dark:hover:bg-primary-900/20 rounded-lg transition-colors border border-gray-200 dark:border-gray-700 hover:border-primary-200 dark:hover:border-primary-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                       >
                          <Eye className="w-4 h-4" />
                        </button>
                        {order.invoiceId && (

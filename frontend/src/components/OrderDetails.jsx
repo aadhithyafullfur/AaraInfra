@@ -14,7 +14,16 @@ export default function OrderDetails() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const hasValidOrderId = Boolean(id && id !== 'undefined' && id !== 'null');
+
   useEffect(() => {
+    if (!hasValidOrderId) {
+      toast.error('Invalid order link.');
+      setLoading(false);
+      navigate('/client/orders', { replace: true });
+      return;
+    }
+
     const fetchOrder = async () => {
       try {
         setLoading(true);
@@ -31,7 +40,7 @@ export default function OrderDetails() {
       }
     };
     fetchOrder();
-  }, [id]);
+  }, [hasValidOrderId, id, navigate]);
 
   const { socket } = useSocket();
 

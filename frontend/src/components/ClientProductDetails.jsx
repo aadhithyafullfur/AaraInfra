@@ -4,6 +4,9 @@ import axios from 'axios';
 import { ArrowLeft, ShoppingCart, Zap, Tag, Layers, Ruler, BadgePercent } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+const ASSETS_BASE_URL = import.meta.env.VITE_ASSETS_BASE_URL || API_BASE_URL;
+
 export default function ClientProductDetails() {
   const { id } = useParams();
   const { state } = useLocation();
@@ -20,7 +23,7 @@ export default function ClientProductDetails() {
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get(`http://localhost:5000/api/products/${id}`, {
+        const res = await axios.get(`${API_BASE_URL}/api/products/${id}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProduct(res.data);
@@ -38,7 +41,7 @@ export default function ClientProductDetails() {
     if (!product?.image) return 'https://via.placeholder.com/800x500?text=Window';
     return product.image.startsWith('http')
       ? product.image
-      : `http://localhost:5000/${product.image.replace(/\\/g, '/')}`;
+      : `${ASSETS_BASE_URL}/${product.image.replace(/\\/g, '/')}`;
   }, [product]);
 
   const features = useMemo(() => {

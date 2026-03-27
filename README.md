@@ -21,9 +21,9 @@ This project is now dockerized with 3 services:
 
 From the project root:
 
-1. (Optional) export your chatbot key for build-time injection:
+1. Configure chatbot key in backend environment:
 
-	`export VITE_GROQ_API_KEY=your_key_here`
+	Set `GROQ_API_KEY=your_key_here` in `backend/.env`
 
 2. Build and start all services:
 

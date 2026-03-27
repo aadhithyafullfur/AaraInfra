@@ -1,6 +1,8 @@
 import React from 'react';
 import { ShoppingCart, ExternalLink, Plus } from 'lucide-react';
 
+const ASSETS_BASE_URL = import.meta.env.VITE_ASSETS_BASE_URL || import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+
 export default function ProductCard({ product, onAddToCart, onViewDetails }) {
   const placeholderImage = "https://via.placeholder.com/400?text=Window";
   const brokenImageFallback = "https://via.placeholder.com/400?text=No+Image";
@@ -24,7 +26,7 @@ export default function ProductCard({ product, onAddToCart, onViewDetails }) {
     <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md border border-gray-100 dark:border-gray-800 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
       <div className="relative w-full h-48 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-900 mb-4 flex-shrink-0 cursor-pointer" onClick={() => onViewDetails && onViewDetails(product)}>
         <img
-          src={product?.image ? (product.image.startsWith('http') ? product.image : `http://localhost:5000/${product.image.replace(/\\/g, '/')}`) : placeholderImage}
+          src={product?.image ? (product.image.startsWith('http') ? product.image : `${ASSETS_BASE_URL}/${product.image.replace(/\\/g, '/')}`) : placeholderImage}
           alt={product?.name || "Product"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           onError={(e) => {

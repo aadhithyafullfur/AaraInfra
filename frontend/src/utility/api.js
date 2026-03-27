@@ -98,10 +98,15 @@ export const updateOrderStatus = async (orderId, status) => {
 
 export const getOrderById = async (orderId) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/orders/${orderId}`, getAuthHeaders());
+    const normalizedOrderId = String(orderId || "").trim();
+    if (!normalizedOrderId || normalizedOrderId === "undefined" || normalizedOrderId === "null") {
+      throw new Error("Invalid order ID");
+    }
+
+    const response = await axios.get(`${API_BASE_URL}/api/orders/${normalizedOrderId}`, getAuthHeaders());
     return response.data;
   } catch (error) {
-    throw error.response?.data?.message || "Failed to fetch order details";
+    throw error.response?.data?.message || error.message || "Failed to fetch order details";
   }
 };
 

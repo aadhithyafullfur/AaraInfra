@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+
 const SYSTEM_PROMPT = `You are Aara, the official AI Assistant for AARA INFRA, a premium infrastructure development and consultancy company. 
 You are here to assist clients with their infrastructure needs, answer questions about our products, and guide them through our digital dashboard. 
 Keep your answers professional, concise, and helpful. Use a warm, premium tone.
@@ -57,11 +59,10 @@ export default function ClientChatbot() {
         userMessage
       ].map(m => ({ role: m.role, content: m.content }));
 
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const res = await fetch(`${API_BASE_URL}/api/ai/chat`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           model: 'llama-3.1-8b-instant',
@@ -71,12 +72,19 @@ export default function ClientChatbot() {
         })
       });
 
+      const contentType = res.headers.get('content-type') || '';
+      const data = contentType.includes('application/json')
+        ? await res.json()
+        : { message: await res.text() };
+
       if (!res.ok) {
-        throw new Error('Failed to connect to AI');
+        throw new Error(data?.message || 'Failed to connect to AI');
       }
 
-      const data = await res.json();
-      const botResponse = data.choices[0].message.content;
+      const botResponse = data.reply;
+      if (!botResponse) {
+        throw new Error('AI response was empty');
+      }
 
       setMessages((prev) => [...prev, { role: 'assistant', content: botResponse }]);
     } catch (error) {

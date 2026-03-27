@@ -6,6 +6,8 @@ import { useCart } from '../context/CartContext';
 import ProductGrid from './ProductGrid';
 import { AnimatePresence, motion } from "framer-motion";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+
 export default function ClientProducts() {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -22,7 +24,7 @@ export default function ClientProducts() {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5000/api/products', {
+        const res = await axios.get(`${API_BASE_URL}/api/products`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setProducts(res.data);
